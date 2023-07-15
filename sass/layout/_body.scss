@@ -1,0 +1,52 @@
+
+body {
+    display: grid;
+    place-items: center;
+    background-color: black;
+
+    picture {
+        width: calc(100vw - 2rem);
+        max-width: 375px;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 0 15px 3px pink;
+        cursor: pointer;
+    }
+
+    .emoji {
+        color: red;
+        position: absolute;
+
+        &.hidden {
+            animation: hide 1s linear forwards;
+            transform: scale(2);
+
+            @keyframes hide {
+                
+                25%{
+                    transform: scale(2.5);
+                }
+                to {
+                    transform: scale(0) rotateY(2turn);
+                    opacity: 0;
+                }
+            }
+        }
+
+        &.visible {
+            opacity: 0;
+            animation: show 1s linear forwards;
+
+            @keyframes show {
+                
+                75% {
+                    transform: scale(3);
+                }
+                100%{
+                    transform: scale(2);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
